@@ -36,15 +36,16 @@ db.connect(err => {
 });
 
 // Obtener todos los clientes
-app.get('/clientes', (req, res) => {
-    db.query('SELECT * FROM clientes', (err, results) => {
-        if (err) {
-            console.error('Error al obtener clientes:', err);
-            return res.status(500).json({ error: 'Error en servidor' });
-        }
-        res.json(results);
-    });
+app.get("/clientes", (req, res) => {
+  db.query("SELECT * FROM clientes", (err, results) => {
+    if (err) {
+      console.error("Error al obtener clientes:", err);
+      return res.status(500).json({ error: "Error en el servidor" });
+    }
+    res.json(results);
+  });
 });
+
 
 // Registrar nuevo cliente
 app.post('/clientes', (req, res) => {
